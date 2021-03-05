@@ -3,14 +3,17 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.prof18.kmp.fatframework.cocoa") version "0.0.1"
 }
+
+val iosFrameworkName = "shared"
 
 kotlin {
     android()
     ios {
         binaries {
             framework {
-                baseName = "shared"
+                baseName = iosFrameworkName
             }
         }
     }
@@ -52,7 +55,8 @@ val packForXcode by tasks.creating(Sync::class) {
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
     val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    val framework =
+        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
     val targetDir = File(buildDir, "xcode-frameworks")
@@ -60,4 +64,16 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 
-tasks.getByName("build").dependsOn(packForXcode)
+fatFrameworkCocoaConfig {
+    fatFrameworkName = iosFrameworkName
+    outputPath = "$rootDir/../test-dest"
+    versionName = "1.2-SNAPSHOT"
+
+    cocoaPodRepoInfo {
+        summary = "This is a test KMP framework"
+        homepage = "https://github.com/wzieba/KMM-template"
+        license = "MIT"
+        authors = "\"user\" => \"mail@mail.com\""
+        gitUrl = "git@github.com:wzieba/KMM-template-cocoa.git"
+    }
+}
