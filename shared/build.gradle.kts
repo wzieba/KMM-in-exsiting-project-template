@@ -4,6 +4,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.prof18.kmp.fatframework.cocoa") version "0.0.1"
+    id("maven-publish")
 }
 
 val iosFrameworkName = "shared"
