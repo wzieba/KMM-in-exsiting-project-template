@@ -6,6 +6,7 @@ This template is prepared with thought of seamless integration of KMM library to
 - Default KMM project created by Android Studio wizard
 - CI workflows based on Github Actions. It builds and tests both Android and iOS variants parallelly
 - Release configuration based on Cocoapods (iOS) and Jitpack (Android)
+- Automated dependency update via Dependabot and Mergify (optional, only Mergify is enabled for a repository)
 
 ## Setup
 After creating repository based on this template, several steps are required in order to publish artifacts for further usage in native codebases:
