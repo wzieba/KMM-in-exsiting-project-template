@@ -1,6 +1,5 @@
 package com.automattic.myapplication.shared
 
-
 import platform.UIKit.UIDevice
 
 actual class Platform actual constructor() {

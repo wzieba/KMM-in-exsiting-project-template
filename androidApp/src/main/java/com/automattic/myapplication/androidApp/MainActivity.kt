@@ -1,9 +1,9 @@
 package com.automattic.myapplication.androidApp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.automattic.myapplication.shared.Greeting
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.automattic.myapplication.shared.Greeting
 
 fun greet(): String {
     return Greeting().greeting()
