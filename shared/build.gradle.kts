@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.prof18.kmp.fatframework.cocoa") version "0.0.1"
+    id("com.prof18.kmp.fatframework.cocoa")
     id("maven-publish")
     id("org.jmailen.kotlinter")
 }
