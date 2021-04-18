@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jmailen.kotlinter")
+    id("kotlin-android")
 }
 
 dependencies {
