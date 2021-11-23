@@ -5,7 +5,7 @@ pluginManagement {
     plugins {
         id("com.android.application") version agp
         id("org.jmailen.kotlinter") version "3.3.0"
-        id("com.prof18.kmp.fatframework.cocoa") version "0.0.1"
+        id("com.prof18.kmp.fatframework.cocoa") version "0.2.1"
         kotlin("multiplatform") version kotlin
         kotlin("native.cocoapods") version kotlin
         kotlin("android") version kotlin
